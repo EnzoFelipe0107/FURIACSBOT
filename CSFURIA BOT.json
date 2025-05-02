@@ -1,0 +1,1111 @@
+{
+  "name": "My workflow",
+  "nodes": [
+    {
+      "parameters": {
+        "chatId": "={{ $('ESCUTA').item.json.message.chat.id }}",
+        "text": "=Fala FURIOSO(a)!! 🖤🔥\n\nTá afim de saber mais sobre nosso time de CS?\n\nSelecione algumas das opções abaixo:\n\n1 - QUERO SABER QUAL A LINEUP ATUAL\n\n2 - QUERO SABER QUAIS CAMPEONATOS A FURIA ESTÁ PARTICIPANDO NO MOMENTO\n\n3 - QUERO SABER SOBRE OS PRÓXIMOS JOGOS\n\n4 - QUERO VER OS DADOS DOS PLAYERS NO ÚLTIMO GAME\n\n5 - QUERO VER O DESEMPENHO DA FURIA EM CADA MAPA\n\n6 - QUERO SABER AS CONFIGURAÇÕES DOS PLAYERS\n\n7 - QUERO VER AS REDES SOCIAIS DOS PROS E DA FURIA\n\n8- QUERO ABRIR A LOJA DA FURIA\n\nLEMBRANDO QUE SE PREFERIR TEMOS NOSSO BOT NO WHATSAPP SÓ CHAMAR EM: \nhttps://wa.me/5511993404466)\n\nse quiser uma interação melhor com outros fãs acesse nosso discord:\nhttps://discord.com/invite/furia",
+        "additionalFields": {
+          "appendAttribution": false
+        }
+      },
+      "type": "n8n-nodes-base.telegram",
+      "typeVersion": 1.2,
+      "position": [
+        620,
+        -300
+      ],
+      "id": "85d1ccc3-cb9b-439e-8977-5a45478a6e5f",
+      "name": "TEXTO MENU",
+      "webhookId": "2e144431-3195-407b-ad26-9517e71c85b1",
+      "credentials": {
+        "telegramApi": {
+          "id": "piIz9aeJTYzIJlIw",
+          "name": "Telegram account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "updates": [
+          "message",
+          "callback_query"
+        ],
+        "additionalFields": {}
+      },
+      "type": "n8n-nodes-base.telegramTrigger",
+      "typeVersion": 1.2,
+      "position": [
+        -400,
+        -40
+      ],
+      "id": "7be1585a-36f3-471a-aef9-2ea98eba7d07",
+      "name": "ESCUTA",
+      "webhookId": "4e2ba833-3dce-4880-8e42-5984cfdb8c97",
+      "credentials": {
+        "telegramApi": {
+          "id": "piIz9aeJTYzIJlIw",
+          "name": "Telegram account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "chatId": "={{ $json.result.chat.id }}",
+        "text": "=NOSSAS LINEUP ATUAIS SÃO:\n- MASCULINO\n\n* yuurih - (Yuri Boian) - since 2017\n* KSCERATO - (Kaike Cerato) - since 2018\t\n* FalleN - (Gabriel Toledo) - since 2023\n* molodoy - (Danil Golubenko) - since 2025\n* YEKINDAR - (Mareks Gaļinskis) - since 2025\t\n\n RESERVAS:\n* skullz (Felipe Medeiros) since 2024\n* chelo - (Marcelo Cespedes) since 2023\n\nCOACH:\n* sidde - (Sidnei Macedo) since 2024\n\n--------------------------------------------------\n\n- FEMININO \n\nkaahSENSEI - (Karina Takashi) since 2020\nizaa - (Izabella Galle) - since 2020\t\ngabs - (Gabriela Freindorfer) - since 2023\nbizinha - (Bruna Marvila) - since 2024\nlulitenz - (Lucia Dubra) - since 2024\t\n\n",
+        "additionalFields": {
+          "appendAttribution": false
+        }
+      },
+      "type": "n8n-nodes-base.telegram",
+      "typeVersion": 1.2,
+      "position": [
+        1320,
+        -420
+      ],
+      "id": "41fe4342-712c-4776-8239-0e8626264a20",
+      "name": "LINEUP TEXTO",
+      "webhookId": "2e144431-3195-407b-ad26-9517e71c85b1",
+      "credentials": {
+        "telegramApi": {
+          "id": "piIz9aeJTYzIJlIw",
+          "name": "Telegram account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "sendPhoto",
+        "chatId": "={{ $json.message.chat.id }}",
+        "file": "https://mediaresource.sfo2.digitaloceanspaces.com/wp-content/uploads/2024/04/22105202/furia-esports-logo-C7F0FAD39C-seeklogo.com.png",
+        "additionalFields": {}
+      },
+      "type": "n8n-nodes-base.telegram",
+      "typeVersion": 1.2,
+      "position": [
+        440,
+        -300
+      ],
+      "id": "14eb0e31-cb88-4bdd-b045-9603b57b9627",
+      "name": "Telegram",
+      "webhookId": "887e96b6-a674-48d6-8f8a-6fa474530c89",
+      "credentials": {
+        "telegramApi": {
+          "id": "piIz9aeJTYzIJlIw",
+          "name": "Telegram account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "chatId": "={{ $json.result.chat.id }}",
+        "text": "NOSSO ÚLTIMO JOGO:\n\nFURIA 0 X 2 THE MONGOLZ\n\n\n1 - MAPA \nMIRAGE 9 X 13\n\nFURIA\nK/D  |\tK/D DIFF  | ADR\t| KAST\t| Rating 1.0\n\nYuri \"yuurih\" Santos\n21/16 |\t+5 | 115.4 |\t77.3% | 1.44\n\nKaike \"KSCERATO\" Cerato\n18/18 |\t0  |  83  | 77.3% | 1.1\n\nGabriel \"FalleN\" Toledo\n13/13 |\t0  | 65.2 | 72.7% | 0.9\n\nFelipe \"skullz\" Medeiros\n11/15 |\t-4 | 57.7 | 72.7% | 0.79\n\nMarcelo \"chelo\" Cespedes\n8/16 |\t-8 | 38.1 | 68.2% | 0.62\n--------------------------------------------\n2- MAPA\nNUKE 11 X 13\n\nYuri \"yuurih\" Santos\n16/17 | -1 |  87.9 | 79.2% | 1.09\n\nKaike \"KSCERATO\" Cerato\n22/16 |\t+6  | 77.5 | 75% | 1.14\n\nGabriel \"FalleN\" Toledo\n9/18  |\t-9 | 41.1 | 58.3% | 0.6\n\nFelipe \"skullz\" Medeiros\n10/17 |\t-7 | 62.7 | 54.2% | 0.69\n\nMarcelo \"chelo\" Cespedes\n16/19 |\t-3 | 73.9 | 66.7% | 1\n\n--------------------------------------------\n\nESTATISTICAS TOTAIS:\n\nYuri \"yuurih\" Santos\n37/33 | +4 |  101.65 | 78.25% | 1.27\n\nKaike \"KSCERATO\" Cerato\n40/34 |\t+6  | 80.25 | 76.16% | 1.13\n\nGabriel \"FalleN\" Toledo\n22/31  | -9 | 53.16 | 65.5% | 0.75\n\nFelipe \"skullz\" Medeiros\n21/32 |\t-11 | 60.2 | 63.45% | 0.74\n\nMarcelo \"chelo\" Cespedes\n24/35 |\t-11 | 56  | 67.45% | 0.81",
+        "additionalFields": {
+          "appendAttribution": false
+        }
+      },
+      "type": "n8n-nodes-base.telegram",
+      "typeVersion": 1.2,
+      "position": [
+        1360,
+        160
+      ],
+      "id": "d16755a4-e92c-4766-871f-7cad18f95f6b",
+      "name": "ULTIMOS JOGOS",
+      "webhookId": "ed306b56-8dee-437b-a0ec-509d7cdd89cb",
+      "credentials": {
+        "telegramApi": {
+          "id": "piIz9aeJTYzIJlIw",
+          "name": "Telegram account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "sendPhoto",
+        "chatId": "={{ $json.message.chat.id }}",
+        "file": "https://api.url2png.com/v6/PC48C7F6DF901A9/7ff9a80e004e08385f73eb7ef938ecd4/png/?url=https%3A%2F%2Fwww.hltv.org%2Fmatches%2Fpicture%2F2381321&user_agent=url2pngsecret&thumbnail_max_width=800&viewport=800x418&unique=v2_8297_6248_p_2023_10566_12553_15631_18676_20194_20275_20903_21001_21809",
+        "additionalFields": {}
+      },
+      "type": "n8n-nodes-base.telegram",
+      "typeVersion": 1.2,
+      "position": [
+        1160,
+        160
+      ],
+      "id": "9bf99ba4-6153-4661-8b89-c5462b6a93d8",
+      "name": "FOTO ULTIMOS JOGOS",
+      "webhookId": "d63b7514-cd07-42f5-984e-c0808419cf13",
+      "credentials": {
+        "telegramApi": {
+          "id": "piIz9aeJTYzIJlIw",
+          "name": "Telegram account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "chatId": "={{ $json.result.chat.id }}",
+        "text": "Nossos próximos jogos serão:\n\nMASCULINO\nFURIA X G2 10/05 - 19H (PGL ASTANA 2025) - mockup\nFURIA X ASTRALIS 13/05 - 21H (PGL ASTANA 2025) - mockup\nFURIA X NAVI 17/05 - 17H (PGL ASTANA 2025) - mockup\n \n---------------------------------------\nFEMININO\nFURIA X IMPERIAL 17/05 - 17H (ESL IMPACT) - mockup\nFURIA X FLUXO 17/05 - 17H (ESL IMPACT) - mockup\nFURIA X KEYD 17/05 - 17H (ESL IMPACT) - mockup\n\ntransmissão em nosso parceiro twitch.tv/gaules\n\nVAMOS TORCER? 🖤🔥",
+        "additionalFields": {
+          "appendAttribution": false
+        }
+      },
+      "type": "n8n-nodes-base.telegram",
+      "typeVersion": 1.2,
+      "position": [
+        1360,
+        0
+      ],
+      "id": "ea4edff2-9bcc-47f6-99db-dcaa02b43f1c",
+      "name": "PROXIMOS JOGOS",
+      "webhookId": "ed306b56-8dee-437b-a0ec-509d7cdd89cb",
+      "credentials": {
+        "telegramApi": {
+          "id": "piIz9aeJTYzIJlIw",
+          "name": "Telegram account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "sendPhoto",
+        "chatId": "={{ $json.message.chat.id }}",
+        "file": "https://assets.gamearena.gg/wp-content/uploads/2024/05/05152628/FalleN-FURIA-EPL-S19-1024x683.jpg",
+        "additionalFields": {}
+      },
+      "type": "n8n-nodes-base.telegram",
+      "typeVersion": 1.2,
+      "position": [
+        1160,
+        0
+      ],
+      "id": "760a97a6-abe2-472f-9648-54e3f149b859",
+      "name": "FOTO PROXIMOS JOGOS",
+      "webhookId": "d63b7514-cd07-42f5-984e-c0808419cf13",
+      "credentials": {
+        "telegramApi": {
+          "id": "piIz9aeJTYzIJlIw",
+          "name": "Telegram account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "chatId": "={{ $json.result.chat.id }}",
+        "text": "=MASCULINO \n\nPGL Astana 2025 \nMay 10 - 18\n\nIntel Extreme Masters Dallas 2025\nMay 19 - 25\n\nBLAST.tv Austin Major 2025\nJun 02 - 22\n\n----------------------------------------------\nFEMININO \n\nESL IMPACT LEAGUE SEASON 7\n\nMay 23 - 25\n\n\nRUMO AO TÍTULO! 🖤🔥",
+        "additionalFields": {
+          "appendAttribution": false
+        }
+      },
+      "type": "n8n-nodes-base.telegram",
+      "typeVersion": 1.2,
+      "position": [
+        1360,
+        -160
+      ],
+      "id": "25809972-74dd-4595-8cf7-8f3a7ff7ebeb",
+      "name": "PROXIMOS CAMPS",
+      "webhookId": "e9b59262-2930-459a-a63d-31b23d8596c4",
+      "credentials": {
+        "telegramApi": {
+          "id": "piIz9aeJTYzIJlIw",
+          "name": "Telegram account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "sendPhoto",
+        "chatId": "={{ $json.message.chat.id }}",
+        "file": "https://img-cdn.hltv.org/gallerypicture/df2uYXMVlqjCyT4kRlaN4C.jpg?ixlib=java-2.1.0&w=1200&s=e93b4061a971c22f435e33128e2dfed2",
+        "additionalFields": {}
+      },
+      "type": "n8n-nodes-base.telegram",
+      "typeVersion": 1.2,
+      "position": [
+        1160,
+        -160
+      ],
+      "id": "c588e0c8-ece1-45b7-9718-6c22fb8b4a39",
+      "name": "FOTO PROXIMOS CAMPS",
+      "webhookId": "d63b7514-cd07-42f5-984e-c0808419cf13",
+      "credentials": {
+        "telegramApi": {
+          "id": "piIz9aeJTYzIJlIw",
+          "name": "Telegram account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "fb7546b9-1875-4aa0-b771-1bd17fe81ea1",
+              "leftValue": "={{ $json.message.text }}",
+              "rightValue": "/start",
+              "operator": {
+                "type": "string",
+                "operation": "equals"
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [
+        -100,
+        -140
+      ],
+      "id": "13e7abef-fcf0-4e87-986b-c05038a2a74d",
+      "name": "If"
+    },
+    {
+      "parameters": {
+        "rules": {
+          "values": [
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "leftValue": "={{ $json.message.text }}",
+                    "rightValue": "1",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals"
+                    },
+                    "id": "0c13b744-d536-423b-b4d9-927fad807091"
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "1"
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "id": "34453fd8-c35f-416b-be97-0b19361929a6",
+                    "leftValue": "={{ $json.message.text }}",
+                    "rightValue": "2",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals",
+                      "name": "filter.operator.equals"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "2"
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "id": "9c520493-dc30-4f98-90a5-a1b85fda9cd5",
+                    "leftValue": "={{ $json.message.text }}",
+                    "rightValue": "3",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals",
+                      "name": "filter.operator.equals"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "3"
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "id": "00829b6e-4ad8-4fd9-8c17-762031e891b2",
+                    "leftValue": "={{ $json.message.text }}",
+                    "rightValue": "4",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals",
+                      "name": "filter.operator.equals"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "4"
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "id": "a812370a-5a0b-4743-999e-402ecb0cf9d7",
+                    "leftValue": "={{ $json.message.text }}",
+                    "rightValue": "5",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals",
+                      "name": "filter.operator.equals"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "5"
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "id": "3866c981-5fd9-41d4-b532-eb5d999ed317",
+                    "leftValue": "={{ $json.message.text }}",
+                    "rightValue": "6",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals",
+                      "name": "filter.operator.equals"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "6"
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "id": "818be087-fc87-44ce-85ea-70a926b77bc4",
+                    "leftValue": "={{ $json.message.text }}",
+                    "rightValue": "7",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals",
+                      "name": "filter.operator.equals"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "7"
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "id": "642ee3e9-7409-448b-a4e2-c23e0d64162b",
+                    "leftValue": "={{ $json.message.text }}",
+                    "rightValue": "8",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals",
+                      "name": "filter.operator.equals"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "8"
+            }
+          ]
+        },
+        "options": {
+          "fallbackOutput": "extra"
+        }
+      },
+      "type": "n8n-nodes-base.switch",
+      "typeVersion": 3.2,
+      "position": [
+        520,
+        -20
+      ],
+      "id": "dd651a46-c519-4194-bd28-6ecdabfbe657",
+      "name": "Switch"
+    },
+    {
+      "parameters": {
+        "operation": "sendPhoto",
+        "chatId": "={{ $json.message.chat.id }}",
+        "file": "https://s2-techtudo.glbimg.com/QfML3xamEeWrEks2jW6NrrxlHdA=/0x0:2048x1365/600x0/smart/filters:gifv():strip_icc()/i.s3.glbimg.com/v1/AUTH_08fbf48bc0524877943fe86e43087e7a/internal_photos/bs/2022/e/r/ywaC15RBAeIyhBtnHjBg/fgbowaqxgau9hp8.jfif",
+        "additionalFields": {}
+      },
+      "type": "n8n-nodes-base.telegram",
+      "typeVersion": 1.2,
+      "position": [
+        1060,
+        -420
+      ],
+      "id": "9bb1a717-6d22-4eae-95f9-6c4c1c809905",
+      "name": "FOTO PROXIMOS CAMPS1",
+      "webhookId": "d63b7514-cd07-42f5-984e-c0808419cf13",
+      "credentials": {
+        "telegramApi": {
+          "id": "piIz9aeJTYzIJlIw",
+          "name": "Telegram account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "sendPhoto",
+        "chatId": "={{ $json.message.chat.id }}",
+        "file": "https://liquipedia.net/commons/images/thumb/3/33/Chelo_at_PGL_Bucharest_2025.jpg/600px-Chelo_at_PGL_Bucharest_2025.jpg",
+        "additionalFields": {}
+      },
+      "type": "n8n-nodes-base.telegram",
+      "typeVersion": 1.2,
+      "position": [
+        1160,
+        420
+      ],
+      "id": "d83f9a4f-947a-4691-b9f5-4481b2650c61",
+      "name": "FOTO ULTIMOS JOGOS1",
+      "webhookId": "d63b7514-cd07-42f5-984e-c0808419cf13",
+      "credentials": {
+        "telegramApi": {
+          "id": "piIz9aeJTYzIJlIw",
+          "name": "Telegram account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "chatId": "={{ $json.result.chat.id }}",
+        "text": "Acesse o link do jogador que você deseja saber as configurações e se joga na experiência! (quem sabe você não vira um dos nossos??) 😁😁\nMASCULINO\n\nyuriih : https://liquipedia.net/counterstrike/Yuurih\n\nKSCERATO : https://liquipedia.net/counterstrike/KSCERATO\n\nFalleN : https://liquipedia.net/counterstrike/FalleN\n\nmolodoy : -----------------\n\nYEKINDAR : https://liquipedia.net/counterstrike/YEKINDAR\n\nskullz : https://liquipedia.net/counterstrike/Skullz\n\nchelo : https://liquipedia.net/counterstrike/Chelo\n------------------------------------------------------------------\nFEMININA\n\nkaahSENSEI : https://liquipedia.net/counterstrike/KaahSENSEI\n\nizaa : https://liquipedia.net/counterstrike/Izaa\n\ngabs : https://liquipedia.net/counterstrike/Gabs\n\nbizinha : https://liquipedia.net/counterstrike/Bizinha\n\nlulitenz : https://liquipedia.net/counterstrike/Lulitenz\n\ndados retirados de liquipedia.net",
+        "additionalFields": {
+          "appendAttribution": false
+        }
+      },
+      "type": "n8n-nodes-base.telegram",
+      "typeVersion": 1.2,
+      "position": [
+        1380,
+        420
+      ],
+      "id": "9a07e2de-c889-4390-b536-3201443f0b71",
+      "name": "CONFIGS",
+      "webhookId": "2aef7992-345b-4e9a-9266-f113d7592404",
+      "credentials": {
+        "telegramApi": {
+          "id": "piIz9aeJTYzIJlIw",
+          "name": "Telegram account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "chatId": "={{ $json.message.chat.id }}",
+        "text": "Nos siga  com os links abaixo!, ficaremos muito felizes :) \n\nyuurih :\nInstagram = https://www.instagram.com/yuurihfps\ntwitter/x = https://x.com/yuurih\ntwitch = https://www.twitch.tv/yuurih\n\nKSCERATO :\nInstagram = https://www.instagram.com/kscerato\ntwitter/x = https://x.com/kscerato\ntwitch = https://www.twitch.tv/kscerato\n\nFalleN :\nInstagram = https://www.instagram.com/fallen\ntwitter/x = https://x.com/FalleNCS\ntwitch = https://www.twitch.tv/gafallen\n\nmolodoy :\ntwitter/x = https://x.com/tvoymolodoy\ntwitch = https://www.twitch.tv/molodoy1818\n\nYEKINDAR :\nInstagram = https://www.instagram.com/yek1ndar\ntwitter/x = https://x.com/yek1ndar\ntwitch = https://www.twitch.tv/yekindar\n\nskullz :\nInstagram = https://www.instagram.com/skullzcs\ntwitter/x = https://x.com/skullzcs\ntwitch = https://www.twitch.tv/skullzcs\n\nchelo :\nInstagram = https://www.instagram.com/chelok1ng\ntwitter/x = https://x.com/chelok1ng\ntwitch = https://www.twitch.tv/chelok1ng\n---------------------------------------------------------------------------\nFEMININA \n\nlulitenz:\nInstagram = https://www.instagram.com/ludubra\ntwitter/x = https://x.com/LuDubra\ntwitch = https://www.twitch.tv/lulitenz\n\nkaahSENSEI: \nInstagram = https://www.instagram.com/kaahtak\ntwitter/x = https://x.com/kaahtak\ntwitch = https://www.twitch.tv/kaah\n\nizaa: \nInstagram = https://www.instagram.com/izaa_galle\ntwitter/x = https://x.com/izaa_galle\ntwitch = https://www.twitch.tv/izaa\n\ngabs: \nInstagram = https://www.instagram.com/gabsfreindorfer\ntwitter/x = https://x.com/gabsfreindorfer\ntwitch = https://www.twitch.tv/gabssf\n\nbizinha: \nInstagram = https://www.instagram.com/bizinhafps\ntwitter/x = https://x.com/bizinhafps\ntwitch = https://www.twitch.tv/bizinha\n\n\nFURIA :\nInstagram = instagram.com/furiagg\ntwitter/x = https://x.com/FURIA\ntwitch = twitch.tv/furiatv",
+        "additionalFields": {
+          "appendAttribution": false
+        }
+      },
+      "type": "n8n-nodes-base.telegram",
+      "typeVersion": 1.2,
+      "position": [
+        1280,
+        600
+      ],
+      "id": "bdbe9741-df47-4e55-8c63-ca4e9b8c47d7",
+      "name": "REDES SOCIAIS",
+      "webhookId": "a7e3fc09-1223-45a6-b122-ea0ed48c59da",
+      "credentials": {
+        "telegramApi": {
+          "id": "piIz9aeJTYzIJlIw",
+          "name": "Telegram account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "chatId": "={{ $json.result.chat.id }}",
+        "text": "1 - dustII\nvitórias / empates / derrotas\n12 / 0 / 7\nWin rate\n63.2%\nrounds jogados\n373\n\n2 - vertigo \nvitórias / empates / derrotas\n4 / 0 / 2\nWin rate\n66.7%\nrounds jogados\n128\n\n3 - anubis\nvitórias / empates / derrotas\n7 / 0 / 7\nWin rate\n50.0%\nrounds jogados\n301\n\n4 - mirage\nvitórias / empates / derrotas\n6 / 0 / 9\nWin rate\n40.0%\nrounds jogados\n359\n\n5 -train \nvitórias / empates / derrotas\n2 / 0 / 3\nWin rate\n40.0%\nrounds jogados\n112\n\n6 - inferno\nvitórias / empates / derrotas\n5 / 0 / 8\nWin rate\n38.5%\nrounds jogados\n298\n\n7 - nuke\nvitórias / empates / derrotas\n2 / 0 / 5\nWin rate\n28.6%\nrounds jogados\n162",
+        "additionalFields": {
+          "appendAttribution": false
+        }
+      },
+      "type": "n8n-nodes-base.telegram",
+      "typeVersion": 1.2,
+      "position": [
+        1360,
+        280
+      ],
+      "id": "b736c3ac-dccc-4e97-a0a8-0cda2a979ae6",
+      "name": "TABELA MAPAS",
+      "webhookId": "0b7f50dc-6157-4bde-a783-d976f09890de",
+      "credentials": {
+        "telegramApi": {
+          "id": "piIz9aeJTYzIJlIw",
+          "name": "Telegram account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "sendPhoto",
+        "chatId": "={{ $json.message.chat.id }}",
+        "file": "https://img-cdn.hltv.org/gallerypicture/NHjWpIj8lNlRM-_OGkGSW_.jpg?ixlib=java-2.1.0&w=1200&s=8e40510e9331d025088971931584a620",
+        "additionalFields": {}
+      },
+      "type": "n8n-nodes-base.telegram",
+      "typeVersion": 1.2,
+      "position": [
+        1160,
+        280
+      ],
+      "id": "63d17756-7e4a-44c6-b765-1c7e5200a2a0",
+      "name": "FOTO ULTIMOS JOGOS2",
+      "webhookId": "d63b7514-cd07-42f5-984e-c0808419cf13",
+      "credentials": {
+        "telegramApi": {
+          "id": "piIz9aeJTYzIJlIw",
+          "name": "Telegram account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "chatId": "={{ $json.result.chat.id }}",
+        "text": "=Fala FURIOSO(a)!! 🖤🔥\n\nSelecione algumas das opções abaixo:\n\n1 - QUERO SABER QUAL A LINEUP ATUAL\n\n2 - QUERO SABER QUAIS CAMPEONATOS A FURIA ESTÁ PARTICIPANDO NO MOMENTO\n\n3 - QUERO SABER SOBRE OS PRÓXIMOS JOGOS\n\n4 - QUERO VER OS DADOS DOS PLAYERS NO ÚLTIMO GAME\n\n5 - QUERO VER O DESEMPENHO DA FURIA EM CADA MAPA\n\n6 - QUERO SABER AS CONFIGURAÇÕES DOS PLAYERS\n\n7 - QUERO VER AS REDES SOCIAIS DOS PROS E DA FURIA\n\n8- QUERO ABRIR A LOJA DA FURIA\n\nLEMBRANDO QUE SE PREFERIR TEMOS NOSSO BOT NO WHATSAPP SÓ CHAMAR EM: \nhttps://wa.me/5511993404466)",
+        "additionalFields": {
+          "appendAttribution": false
+        }
+      },
+      "type": "n8n-nodes-base.telegram",
+      "typeVersion": 1.2,
+      "position": [
+        2460,
+        -40
+      ],
+      "id": "a6f603ef-fce5-427e-89eb-4717a7a601b0",
+      "name": "TEXTO MENU1",
+      "webhookId": "2e144431-3195-407b-ad26-9517e71c85b1",
+      "credentials": {
+        "telegramApi": {
+          "id": "piIz9aeJTYzIJlIw",
+          "name": "Telegram account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "sendPhoto",
+        "chatId": "={{ $json.result.chat.id }}",
+        "file": "https://mediaresource.sfo2.digitaloceanspaces.com/wp-content/uploads/2024/04/22105202/furia-esports-logo-C7F0FAD39C-seeklogo.com.png",
+        "additionalFields": {}
+      },
+      "type": "n8n-nodes-base.telegram",
+      "typeVersion": 1.2,
+      "position": [
+        2280,
+        -20
+      ],
+      "id": "3b01352f-70ab-461c-958e-168170486826",
+      "name": "Telegram3",
+      "webhookId": "887e96b6-a674-48d6-8f8a-6fa474530c89",
+      "credentials": {
+        "telegramApi": {
+          "id": "piIz9aeJTYzIJlIw",
+          "name": "Telegram account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "amount": 10
+      },
+      "type": "n8n-nodes-base.wait",
+      "typeVersion": 1.1,
+      "position": [
+        2040,
+        -20
+      ],
+      "id": "145fb7b1-ac12-4431-9974-aea730dc7151",
+      "name": "Wait",
+      "webhookId": "35266fa0-6d1b-4b15-a89f-7920d64d5a23"
+    },
+    {
+      "parameters": {
+        "chatId": "={{ $json.message.chat.id }}",
+        "text": "Poxa, essa opção não existe :(\nEscolha uma opção válida:\n\n1 - QUERO SABER QUAL A LINEUP ATUAL\n\n2 - QUERO SABER QUAIS CAMPEONATOS A FURIA ESTÁ PARTICIPANDO NO MOMENTO\n\n3 - QUERO SABER SOBRE OS PRÓXIMOS JOGOS\n\n4 - QUERO VER OS DADOS DOS PLAYERS NO ÚLTIMO GAME\n\n5 - QUERO VER O DESEMPENHO DA FURIA EM CADA MAPA\n\n6 - QUERO SABER AS CONFIGURAÇÕES DOS PLAYERS\n\n7 - QUERO VER AS REDES SOCIAIS DOS PROS E DA FURIA\n\n8- QUERO ABRIR A LOJA DA FURIA",
+        "additionalFields": {
+          "appendAttribution": false
+        }
+      },
+      "type": "n8n-nodes-base.telegram",
+      "typeVersion": 1.2,
+      "position": [
+        660,
+        480
+      ],
+      "id": "abcf2c81-9574-4e9c-a470-41e33b4d3c0d",
+      "name": "diferencial",
+      "webhookId": "91bbd9c8-b77f-419c-b10d-7d6cfcaad61c",
+      "credentials": {
+        "telegramApi": {
+          "id": "piIz9aeJTYzIJlIw",
+          "name": "Telegram account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "chatId": "={{ $json.result.chat.id }}",
+        "text": "Quer saber mais sobre a história da FURIA  com todas as lineups e estatísticas ??\nselecione qual line deseja e venha embarcar nessa história!!",
+        "replyMarkup": "inlineKeyboard",
+        "inlineKeyboard": {
+          "rows": [
+            {
+              "row": {
+                "buttons": [
+                  {
+                    "text": "MASCULINO",
+                    "additionalFields": {
+                      "url": "https://www.hltv.org/stats/teams/lineups/8297/furia?startDate=all"
+                    }
+                  },
+                  {
+                    "text": "FEMININNO",
+                    "additionalFields": {
+                      "url": "https://www.hltv.org/stats/teams/lineups/10976/furia-fe"
+                    }
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        "additionalFields": {
+          "appendAttribution": false
+        }
+      },
+      "type": "n8n-nodes-base.telegram",
+      "typeVersion": 1.2,
+      "position": [
+        1700,
+        -420
+      ],
+      "id": "9d41dde6-1fe8-4afb-b6b2-21b93d0682aa",
+      "name": "Telegram4",
+      "webhookId": "5695ba74-514d-4261-8d71-7d9a511481ad",
+      "credentials": {
+        "telegramApi": {
+          "id": "piIz9aeJTYzIJlIw",
+          "name": "Telegram account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "chatId": "={{ $json.message.chat.id }}",
+        "text": "Tá afim de ficar no estilo com as roupas da FURIA + ADIDAS?\n\nAcesse nossa loja e garanta já seu traje!\nwww.furia.gg",
+        "additionalFields": {
+          "appendAttribution": false
+        }
+      },
+      "type": "n8n-nodes-base.telegram",
+      "typeVersion": 1.2,
+      "position": [
+        1280,
+        780
+      ],
+      "id": "f37695be-cc26-4741-b46d-745be5881e80",
+      "name": "loja furia",
+      "webhookId": "f18619e2-19fb-417b-ab3c-4fca465f6f9d",
+      "credentials": {
+        "telegramApi": {
+          "id": "piIz9aeJTYzIJlIw",
+          "name": "Telegram account"
+        }
+      }
+    }
+  ],
+  "pinData": {},
+  "connections": {
+    "ESCUTA": {
+      "main": [
+        [
+          {
+            "node": "If",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "LINEUP TEXTO": {
+      "main": [
+        []
+      ]
+    },
+    "Telegram": {
+      "main": [
+        [
+          {
+            "node": "TEXTO MENU",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "TEXTO MENU": {
+      "main": [
+        []
+      ]
+    },
+    "PROXIMOS CAMPS": {
+      "main": [
+        [
+          {
+            "node": "Wait",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "If": {
+      "main": [
+        [
+          {
+            "node": "Telegram",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Switch",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Switch": {
+      "main": [
+        [
+          {
+            "node": "FOTO PROXIMOS CAMPS1",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "FOTO PROXIMOS CAMPS",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "FOTO PROXIMOS JOGOS",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "FOTO ULTIMOS JOGOS",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "FOTO ULTIMOS JOGOS2",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "FOTO ULTIMOS JOGOS1",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "REDES SOCIAIS",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "loja furia",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "diferencial",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "FOTO PROXIMOS CAMPS": {
+      "main": [
+        [
+          {
+            "node": "PROXIMOS CAMPS",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "FOTO PROXIMOS JOGOS": {
+      "main": [
+        [
+          {
+            "node": "PROXIMOS JOGOS",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "FOTO ULTIMOS JOGOS": {
+      "main": [
+        [
+          {
+            "node": "ULTIMOS JOGOS",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "FOTO PROXIMOS CAMPS1": {
+      "main": [
+        [
+          {
+            "node": "LINEUP TEXTO",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Telegram4",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "FOTO ULTIMOS JOGOS1": {
+      "main": [
+        [
+          {
+            "node": "CONFIGS",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "CONFIGS": {
+      "main": [
+        [
+          {
+            "node": "Wait",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "FOTO ULTIMOS JOGOS2": {
+      "main": [
+        [
+          {
+            "node": "TABELA MAPAS",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Telegram3": {
+      "main": [
+        [
+          {
+            "node": "TEXTO MENU1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "PROXIMOS JOGOS": {
+      "main": [
+        [
+          {
+            "node": "Wait",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "ULTIMOS JOGOS": {
+      "main": [
+        [
+          {
+            "node": "Wait",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "TABELA MAPAS": {
+      "main": [
+        [
+          {
+            "node": "Wait",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "REDES SOCIAIS": {
+      "main": [
+        [
+          {
+            "node": "Wait",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "TEXTO MENU1": {
+      "main": [
+        []
+      ]
+    },
+    "Wait": {
+      "main": [
+        [
+          {
+            "node": "Telegram3",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "diferencial": {
+      "main": [
+        []
+      ]
+    },
+    "Telegram4": {
+      "main": [
+        [
+          {
+            "node": "Wait",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "loja furia": {
+      "main": [
+        [
+          {
+            "node": "Wait",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": false,
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "versionId": "54478287-cc14-453d-92a6-6827a66dc1d3",
+  "meta": {
+    "templateCredsSetupCompleted": true,
+    "instanceId": "e8396c695f9af231fc13d88e885e0720617dd66b41cd67e1ef2568eb847e77a6"
+  },
+  "id": "N50YR2GLipcJFp1W",
+  "tags": []
+}
